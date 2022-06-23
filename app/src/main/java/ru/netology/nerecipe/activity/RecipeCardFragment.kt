@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.nerecipe.R
+import ru.netology.nerecipe.activity.NewRecipeFragment.Companion.authorArg
+import ru.netology.nerecipe.activity.NewRecipeFragment.Companion.nameArg
+import ru.netology.nerecipe.activity.NewRecipeFragment.Companion.catArg
 import ru.netology.nerecipe.activity.NewRecipeFragment.Companion.textArg
 import ru.netology.nerecipe.adapter.*
 import ru.netology.nerecipe.databinding.CardRecipeBinding
@@ -45,26 +48,41 @@ class RecipeCardFragment : Fragment() {
         }?.let {
 
             val onInteractionListener = object : OnInteractionListener {
-                override fun onContent(recipe: Recipe) {
-                    viewModel.edit(recipe)
-
+                private fun toNewRecipeFragment(recipe: Recipe) {
                     findNavController().navigate(
                         R.id.action_recipeCardFragment_to_newRecipeFragment,
                         Bundle().apply {
+                            authorArg = recipe.author
+                            nameArg = recipe.name
+                            catArg = recipe.category
                             textArg = recipe.content
                         }
                     )
                 }
 
+                override fun onAuthor(recipe: Recipe) {
+                    viewModel.edit(recipe)
+                    toNewRecipeFragment(recipe)
+                }
+
+                override fun onName(recipe: Recipe) {
+                    viewModel.edit(recipe)
+                    toNewRecipeFragment(recipe)
+                }
+
+                override fun onCategory(recipe: Recipe) {
+                    viewModel.edit(recipe)
+                    toNewRecipeFragment(recipe)
+                }
+
+                override fun onContent(recipe: Recipe) {
+                    viewModel.edit(recipe)
+                    toNewRecipeFragment(recipe)
+                }
+
                 override fun onEdit(recipe: Recipe) {
                     viewModel.edit(recipe)
-
-                    findNavController().navigate(
-                        R.id.action_recipeCardFragment_to_newRecipeFragment,
-                        Bundle().apply {
-                            textArg = recipe.content
-                        }
-                    )
+                    toNewRecipeFragment(recipe)
                 }
 
                 override fun onLike(recipe: Recipe) {

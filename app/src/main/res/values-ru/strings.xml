@@ -3,7 +3,7 @@
     <string name="app_name">НРецепт</string>
     <string name="greeting">НРецепт!</string>
     <string name="avatar_description">Аватар автора</string>
-    <string name="description_recipe_menu">Меню поста</string>
+    <string name="description_recipe_menu">Меню рецепта</string>
     <string name="description_favorite">Нравится</string>
     <string name="description_recipe_share">Поделиться</string>
     <string name="description_recipe_viewed">Просмотрено</string>
@@ -12,7 +12,7 @@
     <string name="menu_edit">Изменить</string>
     <string name="menu_add">Добавить</string>
     <string name="recipe_text">Текст рецепта</string>
-    <string name="error_empty_content">Контент не может быть пустым</string>
+    <string name="error_empty_content">Ни одно из полей не может быть пустым</string>
     <string name="error_ref_entry">Контент должен содержать ссылку HTTP ресурса</string>
     <string name="recipe_editMessage">Редактирование сообщения</string>
     <string name="chooser_share_recipe">Поделиться</string>

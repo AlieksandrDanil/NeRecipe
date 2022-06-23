@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CheckBox
+        android:id="@+id/catEuro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Европейская"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/catAsian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Азиатская"
+        app:layout_constraintTop_toBottomOf="@id/catEuro" />
+
+    <CheckBox
+        android:id="@+id/catPanasian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Паназиатская"
+        app:layout_constraintTop_toBottomOf="@id/catAsian" />
+
+    <CheckBox
+        android:id="@+id/catEastern"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Восточная"
+        app:layout_constraintTop_toBottomOf="@id/catPanasian" />
+
+    <CheckBox
+        android:id="@+id/catAmerican"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Американская"
+        app:layout_constraintTop_toBottomOf="@id/catEastern" />
+
+    <CheckBox
+        android:id="@+id/catRussian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Русская"
+        app:layout_constraintTop_toBottomOf="@id/catAmerican" />
+
+    <CheckBox
+        android:id="@+id/catMediterranean"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Средиземноморская"
+        app:layout_constraintTop_toBottomOf="@id/catRussian" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

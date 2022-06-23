@@ -18,6 +18,9 @@ interface OnInteractionListener {
     fun onRemove(recipe: Recipe) {}
     fun onAdd() {}
     fun onPlayVideo(recipe: Recipe)
+    fun onAuthor(recipe: Recipe)
+    fun onName(recipe: Recipe)
+    fun onCategory(recipe: Recipe)
     fun onContent(recipe: Recipe)
 }
 
@@ -59,8 +62,8 @@ fun recipeBinding(
         content.text = recipe.content
         favorite.isChecked = recipe.likedByMe
         favorite.text = recipe.likes.toString()
-        share.text = recipe.shared.toString()
-        visibility.text = recipe.viewed.toString()
+        //share.text = recipe.shared.toString()
+        //visibility.text = recipe.viewed.toString()
         videoBanner.isVisible = recipe.video != null
 
         menu.setOnClickListener {
@@ -85,15 +88,25 @@ fun recipeBinding(
                 }
             }.show()
         }
-        content.setOnClickListener() {
+
+        author.setOnClickListener {
+            onInteractionListener.onAuthor(recipe)
+        }
+        name.setOnClickListener {
+            onInteractionListener.onName(recipe)
+        }
+        category.setOnClickListener {
+            onInteractionListener.onCategory(recipe)
+        }
+        content.setOnClickListener {
             onInteractionListener.onContent(recipe)
         }
         favorite.setOnClickListener {
             onInteractionListener.onLike(recipe)
         }
-        share.setOnClickListener {
-            onInteractionListener.onShare(recipe)
-        }
+//        share.setOnClickListener {
+//            onInteractionListener.onShare(recipe)
+//        }
         videoBanner.setOnClickListener {
             onInteractionListener.onPlayVideo(recipe)
         }

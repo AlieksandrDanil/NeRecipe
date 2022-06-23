@@ -13,6 +13,9 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import ru.netology.nerecipe.R
 import ru.netology.nerecipe.activity.RecipeCardFragment.Companion.idArg
+import ru.netology.nerecipe.activity.NewRecipeFragment.Companion.authorArg
+import ru.netology.nerecipe.activity.NewRecipeFragment.Companion.nameArg
+import ru.netology.nerecipe.activity.NewRecipeFragment.Companion.catArg
 import ru.netology.nerecipe.activity.NewRecipeFragment.Companion.textArg
 import ru.netology.nerecipe.adapter.OnInteractionListener
 import ru.netology.nerecipe.adapter.PostsAdapter
@@ -38,7 +41,19 @@ class FeedFragment : Fragment() {
         )
 
         val adapter = PostsAdapter(object : OnInteractionListener {
-            override fun onContent(recipe: Recipe) {
+            private fun toNewRecipeFragment(recipe: Recipe) {
+                findNavController().navigate(
+                    R.id.action_feedFragment_to_newRecipeFragment,
+                    Bundle().apply {
+                        authorArg = recipe.author
+                        nameArg = recipe.name
+                        catArg = recipe.category
+                        textArg = recipe.content
+                    }
+                )
+            }
+
+            private fun toRecipeCardFragment(recipe: Recipe) {
                 findNavController().navigate(
                     R.id.action_feedFragment_to_recipeCardFragment,
                     Bundle().apply {
@@ -47,14 +62,25 @@ class FeedFragment : Fragment() {
                 )
             }
 
+            override fun onAuthor(recipe: Recipe) {
+                toRecipeCardFragment(recipe)
+            }
+
+            override fun onName(recipe: Recipe) {
+                toRecipeCardFragment(recipe)
+            }
+
+            override fun onCategory(recipe: Recipe) {
+                toRecipeCardFragment(recipe)
+            }
+
+            override fun onContent(recipe: Recipe) {
+                toRecipeCardFragment(recipe)
+            }
+
             override fun onEdit(recipe: Recipe) {
                 viewModel.edit(recipe)
-                findNavController().navigate(
-                    R.id.action_feedFragment_to_newRecipeFragment,
-                    Bundle().apply {
-                        textArg = recipe.content
-                    }
-                )
+                toNewRecipeFragment(recipe)
             }
 
             override fun onLike(recipe: Recipe) {
@@ -103,14 +129,17 @@ class FeedFragment : Fragment() {
         })
 
         binding.list.adapter = adapter
-        viewModel.data.observe(viewLifecycleOwner) { posts ->
-            adapter.submitList(posts)
+        viewModel.data.observe(viewLifecycleOwner) { recipes ->
+            adapter.submitList(recipes)
         }
 
         binding.fab.setOnClickListener {
             findNavController().navigate(
                 R.id.action_feedFragment_to_newRecipeFragment,
                 Bundle().apply {
+                    authorArg = null
+                    nameArg = null
+                    catArg = null
                     textArg = null
                 }
             )

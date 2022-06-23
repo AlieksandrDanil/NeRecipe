@@ -13,7 +13,3 @@ data class Recipe(
     val viewed: Int = 0,
     val video: String? = null
 )
-
-enum class Category {
-    Eurasian, Asian, Panaasian, Eastern, American, Russian, Mediterranean
-}
