@@ -3,28 +3,26 @@ package ru.netology.nerecipe.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nerecipe.R
 import ru.netology.nerecipe.databinding.CardRecipeBinding
 import ru.netology.nerecipe.dto.Recipe
+import ru.netology.nerecipe.dto.Stage
 
 interface OnInteractionListener {
     fun onLike(recipe: Recipe) {}
-    fun onShare(recipe: Recipe) {}
     fun onEdit(recipe: Recipe) {}
     fun onRemove(recipe: Recipe) {}
     fun onAdd() {}
-    fun onPlayVideo(recipe: Recipe)
     fun onAuthor(recipe: Recipe)
     fun onName(recipe: Recipe)
     fun onCategory(recipe: Recipe)
     fun onContent(recipe: Recipe)
 }
 
-class PostsAdapter(
+class RecipesAdapter(
     private val onInteractionListener: OnInteractionListener
 ) : ListAdapter<Recipe, RecipeViewHolder>(RecipeDiffCallback()) {
 
@@ -56,15 +54,20 @@ fun recipeBinding(
     onInteractionListener: OnInteractionListener
 ) {
     binding.apply {
+        msvRecipe.tag = recipe.pos
         author.text = recipe.author
         name.text = recipe.name
         category.text = recipe.category
-        content.text = recipe.content
+        //content.text = recipe.content
         favorite.isChecked = recipe.likedByMe
         favorite.text = recipe.likes.toString()
-        //share.text = recipe.shared.toString()
-        //visibility.text = recipe.viewed.toString()
-        videoBanner.isVisible = recipe.video != null
+
+        stageContent.adapter = StagesAdapter(onInteractionStageListener = object : OnInteractionStageListener{
+            override fun onClicked(stage: Stage) {
+                // TO DO("Not yet implemented")
+                //onInteractionListener.onStage(stage)
+            }
+        })
 
         menu.setOnClickListener {
             PopupMenu(it.context, it).apply {
@@ -98,17 +101,8 @@ fun recipeBinding(
         category.setOnClickListener {
             onInteractionListener.onCategory(recipe)
         }
-        content.setOnClickListener {
-            onInteractionListener.onContent(recipe)
-        }
         favorite.setOnClickListener {
             onInteractionListener.onLike(recipe)
-        }
-//        share.setOnClickListener {
-//            onInteractionListener.onShare(recipe)
-//        }
-        videoBanner.setOnClickListener {
-            onInteractionListener.onPlayVideo(recipe)
         }
     }
 }

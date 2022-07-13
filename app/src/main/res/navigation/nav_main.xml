@@ -38,12 +38,33 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_recipeCardFragment_to_newStageFragment"
+            app:destination="@id/newStageFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
 
     <fragment
         android:id="@+id/newRecipeFragment"
         android:name="ru.netology.nerecipe.activity.NewRecipeFragment"
         android:label="fragment_new_recipe"
-        tools:layout="@layout/fragment_new_recipe" />
+        tools:layout="@layout/fragment_new_recipe">
+        <action
+            android:id="@+id/action_newRecipeFragment_to_newStageFragment"
+            app:destination="@id/newStageFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newStageFragment"
+        android:name="ru.netology.nerecipe.activity.NewStageFragment"
+        android:label="fragment_new_stage"
+        tools:layout="@layout/fragment_new_stage"/>
 
 </navigation>

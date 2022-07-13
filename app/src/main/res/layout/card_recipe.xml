@@ -6,26 +6,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/msvRecipe"
     tools:context=".activity.RecipeCardFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainRecipe"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_margin="@dimen/common_spacing"
         android:background="@drawable/salat"
         android:padding="@dimen/common_spacing">
-
-        <!--ImageView
-            android:id="@+id/avatar"
-            android:layout_width="@dimen/recipe_avatar_size"
-            android:layout_height="@dimen/recipe_avatar_size"
-            android:layout_marginBottom="@dimen/common_spacing"
-            android:contentDescription="@string/avatar_description"
-            app:layout_constraintBottom_toBottomOf="@id/barrier"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_netology_48dp"
-            tools:srcCompat="@drawable/ic_netology_48dp" /-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/menu"
@@ -33,153 +23,92 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/description_recipe_menu"
             app:icon="@drawable/ic_options_24dp"
             app:iconSize="32dp"
+            app:iconTint="@color/cardview_dark_background"
+            app:layout_constraintBottom_toBottomOf="@id/category"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/category"
-            app:layout_constraintBottom_toBottomOf="@id/category"/>
-
-        <!--androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="avatar,name,menu" /-->
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/cardview_shadow_start_color"
-            android:textSize="18sp"
-            android:textColor="@color/purple_700"
-            android:textStyle="bold"
-            android:ellipsize="end"
             android:singleLine="false"
-            android:lineSpacingMultiplier="1.0"
+            android:textColor="@color/purple_700"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/menu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/menu"
-            tools:text="Mediterranean">
-        </TextView>
-
-        <!--TextView
-            android:id="@+id/category"
-            android:textSize="18sp"
-            android:textColor="@color/purple_700"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_spacing"
-            android:autoLink="web"
-            android:lineSpacingMultiplier="1.0"
-            android:paddingBottom="@dimen/common_spacing"
-            app:layout_constraintTop_toBottomOf="@id/author"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Category with different seven kitchens:
-            Eurasian, Asian, Panaasian, Eastern, American, Russian, Mediterranean" /-->
-
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:singleLine="false"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/category"
-                app:layout_constraintBottom_toTopOf="@id/favorite"
-                app:layout_constraintVertical_chainStyle="packed"
-                tools:text="Recipe No.1 \nName of recipe with name of salat and once more recipe" />
-
-            <TextView
-                android:id="@+id/author"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/common_spacing"
-                android:ellipsize="end"
-                android:singleLine="false"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="@id/name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:text="From Milento Buttaro and Me" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/favorite"
-                style="@style/Widget.AppTheme.LikeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checkable="true"
-                android:contentDescription="@string/description_favorite"
-                app:icon="@drawable/ic_favorite_48dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:checked="true"
-                tools:text="new" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:constraint_referenced_ids="content,video_banner"
-            tools:visibility="gone" />
+            tools:text="Mediterranean" />
 
         <TextView
-            android:id="@+id/content"
+            android:id="@+id/name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_spacing"
-            android:autoLink="web"
-            android:lineSpacingMultiplier="1.5"
-            android:paddingBottom="@dimen/common_spacing"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/category"
-            tools:text="Recipe detailed content Recipe detailed content Recipe detailed content Recipe detailed content Recipe detailed content Recipe detailed content Recipe detailed content Recipe detailed contentRecipe detailed content Recipe detailed content" />
+            android:singleLine="false"
+            android:textColor="@color/teal_200"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/favorite"
+            app:layout_constraintStart_toStartOf="@id/category"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Recipe No.1 \nName of recipe with name of salat and once more recipe" />
 
-        <View
-            android:id="@+id/video_banner"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/salat"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/content"
-            tools:visibility="gone" />
-
-        <!--androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier2"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="video_banner" /-->
-
-
-
-        <!--com.google.android.material.button.MaterialButton
-            android:id="@+id/share"
-            style="@style/Widget.AppTheme.IconButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/common_spacing"
-            android:contentDescription="@string/description_recipe_share"
-            app:icon="@drawable/ic_share_24dp"
-            app:layout_constraintStart_toEndOf="@+id/favorite"
-            app:layout_constraintTop_toBottomOf="@id/barrier2"
-            tools:text="139" />
+            android:layout_marginBottom="@dimen/common_spacing"
+            android:singleLine="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/name"
+            tools:text="From Milento Buttaro and Me" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/visibility"
-            style="@style/Widget.AppTheme.IconButton"
-            android:layout_width="wrap_content"
+            android:id="@+id/favorite"
+            style="@style/Widget.AppTheme.LikeButton"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/common_spacing"
-            android:contentDescription="@string/description_recipe_viewed"
-            app:icon="@drawable/ic_visibility_24dp"
+            android:checkable="true"
+            app:icon="@drawable/ic_favorite_48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/barrier2"
-            tools:text="12,4K" /-->
-
+            tools:checkable="true"
+            tools:text="like" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/stageContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp"
+        android:visibility="gone"
+        android:layout_gravity="bottom"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:visibility="visible"
+        tools:listitem="@layout/stage_item">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/empty_view_stage"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="bottom|center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:background="@color/cardview_shadow_start_color"
+        android:visibility="gone"
+        android:text="@string/no_stages"
+        tools:text="@string/no_stages">
+    </TextView>
 
 </com.google.android.material.card.MaterialCardView>

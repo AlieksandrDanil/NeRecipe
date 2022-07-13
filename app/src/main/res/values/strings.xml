@@ -12,9 +12,25 @@
     <string name="menu_edit">Edit</string>
     <string name="menu_add">Add</string>
     <string name="error_empty_content">No one field can\'t be empty</string>
+    <string name="error_parent_object">No parent object have been created</string>
+    <string name="reminder_stage_edit">Select Stage to edit below and use menu</string>
     <string name="error_ref_entry">Content must be a HTTP Reference</string>
+    <string name="error_search_filter">Search and filter does not work in this screen</string>
     <string name="recipe_editMessage">Edit Message</string>
     <string name="chooser_share_recipe">Share recipe</string>
     <string name="add_recipe">Add recipe</string>
     <string name="save">Save</string>
+    <string name="no_recipes">No any recipes created</string>
+    <string name="no_stages">No any stages created</string>
+
+    <string-array name="cat_names">
+        <item>All</item>
+        <item>Eurasian</item>
+        <item>Asian</item>
+        <item>Panasian</item>
+        <item>Eastern</item>
+        <item>American</item>
+        <item>Russian</item>
+        <item>Mediterranean</item>
+    </string-array>
 </resources>

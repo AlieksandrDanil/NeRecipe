@@ -7,6 +7,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import ru.netology.nerecipe.dto.Recipe
 import ru.netology.nerecipe.dto.RecipesFilled
+import ru.netology.nerecipe.dto.Stage
 
 const val DRAFT_POST_ID = 999_999_999_911L
 
@@ -30,6 +31,33 @@ class RecipeRepositorySharedPrefsImpl(
     }
 
     override fun getAll(): LiveData<List<Recipe>> = data
+
+//    override fun getData(): LiveData<List<Recipe>> = data
+//    override fun getByFilter(author: String, name: String, category: String): List<Recipe>? {
+//        data.value = getAll().value?.filter { recipe ->
+//            (recipe.author == author ||
+//                    recipe.name == name ||
+//                    recipe.category == category)
+//        }
+//        return data.value
+//    }
+
+    override fun getByFilter(author: String, name: String, category: String, likedByMe: Boolean) {}
+    override fun getByFilterOnAuthor(author: String) {}
+    override fun getByFilterOnName(name: String) {}
+    override fun getByFilterOnCat(category: String) {}
+    override fun getByFilterOnLike(likedByMe: Boolean) {}
+
+    override fun getAllStages(): LiveData<List<Stage>> {
+        return MutableLiveData(emptyList())
+    }
+
+    override fun getSubById(idRecipe: Long) {}
+
+    override fun saveSub(stage: Stage) {}
+
+    override fun removeSubById(stage: Stage) {}
+
 
     override fun getRecipe(): LiveData<Recipe> = dataPost
     override fun getRecipeById(id: Long): Recipe? {
@@ -89,17 +117,6 @@ class RecipeRepositorySharedPrefsImpl(
                     likedByMe = !it.likedByMe,
                     likes = if (it.likedByMe) it.likes - 1 else it.likes + 1
                 )
-        }
-        data.value = recipes
-        sync()
-    }
-
-    override fun shareById(id: Long) {
-        recipes = recipes.map {
-            if (it.id != id)
-                it
-            else
-                it.copy(shared = it.shared + 1)
         }
         data.value = recipes
         sync()

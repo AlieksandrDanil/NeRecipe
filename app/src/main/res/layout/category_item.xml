@@ -1,64 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/purple_500"
+    android:backgroundTint="@color/cardview_shadow_start_color">
 
-    <CheckBox
-        android:id="@+id/catEuro"
-        android:layout_width="match_parent"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/catCardView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Европейская"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:background="@color/purple_500"
+        android:backgroundTint="@color/cardview_shadow_start_color"
+        android:checkedButton="@id/catTB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="@dimen/common_spacing">
 
-    <CheckBox
-        android:id="@+id/catAsian"
-        android:layout_width="match_parent"
+    <ToggleButton
+        android:id="@+id/catTB"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Азиатская"
-        app:layout_constraintTop_toBottomOf="@id/catEuro" />
+        android:checked="false"
+        android:paddingStart="@dimen/common_spacing"
+        android:paddingEnd="@dimen/common_spacing"
+        android:text="Все категории"
+        android:focusable="true"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Все категории"/>
 
-    <CheckBox
-        android:id="@+id/catPanasian"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Паназиатская"
-        app:layout_constraintTop_toBottomOf="@id/catAsian" />
-
-    <CheckBox
-        android:id="@+id/catEastern"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Восточная"
-        app:layout_constraintTop_toBottomOf="@id/catPanasian" />
-
-    <CheckBox
-        android:id="@+id/catAmerican"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Американская"
-        app:layout_constraintTop_toBottomOf="@id/catEastern" />
-
-    <CheckBox
-        android:id="@+id/catRussian"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Русская"
-        app:layout_constraintTop_toBottomOf="@id/catAmerican" />
-
-    <CheckBox
-        android:id="@+id/catMediterranean"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Средиземноморская"
-        app:layout_constraintTop_toBottomOf="@id/catRussian" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
