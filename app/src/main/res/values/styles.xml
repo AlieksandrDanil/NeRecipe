@@ -26,4 +26,11 @@
         <item name="android:minHeight">@dimen/icon_button_min_size</item>
     </style>
 
+    <style name="Widget.AppTheme.BottomMenu" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+        <item name="iconTint">@color/purple_700</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/purple_700</item>
+        <item name="android:textColorHint">@color/purple_700</item>
+    </style>
+
 </resources>

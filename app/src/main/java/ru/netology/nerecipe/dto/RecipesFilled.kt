@@ -13,6 +13,15 @@ object RecipesFilled {
         likedByMe = false,
     )
 
+    val emptyStage = Stage(
+        id = 0,
+        pos = 0,
+        idRecipe = 0,
+        name = "Empty",
+        description = "Empty",
+        pictureId = 0
+    )
+
     val recipesFilled = listOf(
         Recipe(
             id = primId,
