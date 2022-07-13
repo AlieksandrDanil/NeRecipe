@@ -11,7 +11,7 @@ private val empty = RecipesFilled.empty
 
 class RecipeViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: RecipeRepository = RecipeRepositoryImpl(
-        AppDb.getInstance(context =  application).recipeDao()
+        AppDb.getInstance(context = application).recipeDao()
     )
     val data = repository.getAll()
     val dataRecipe = repository.getRecipe()
@@ -32,12 +32,15 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
         edited.value = recipe
     }
 
-    fun changeContent(content: String) {
+    fun changeContent(author: String, name: String, category: String, content: String) {
+        val textAuthor = author.trim()
+        val textName = name.trim()
+        val textCategory = category.trim()
         val text = content.trim()
         if (edited.value?.content == text) {
             return
         }
-        edited.value = edited.value?.copy(content = text)
+        edited.value = edited.value?.copy(author = textAuthor, name = textName, category = textCategory, content = text)
     }
 
     fun likeById(id: Long) = repository.likeById(id)

@@ -5,6 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import ru.netology.nerecipe.R
+
+import ru.netology.nerecipe.activity.NewRecipeFragment.Companion.authorArg
+import ru.netology.nerecipe.activity.NewRecipeFragment.Companion.nameArg
 import ru.netology.nerecipe.activity.NewRecipeFragment.Companion.textArg
 
 class AppActivity : AppCompatActivity(R.layout.activity_app) {
@@ -25,6 +28,8 @@ class AppActivity : AppCompatActivity(R.layout.activity_app) {
             findNavController(R.id.nav_host_fragment).navigate(
                 R.id.action_feedFragment_to_newRecipeFragment,
                 Bundle().apply {
+                    authorArg = "Author"
+                    nameArg = "Name"
                     textArg = text
                 }
             )

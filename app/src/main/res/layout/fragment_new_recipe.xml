@@ -8,29 +8,102 @@
     tools:context=".activity.NewRecipeFragment">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/edit"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:background="@android:color/transparent">
-    </com.google.android.material.textfield.TextInputEditText>
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
+        android:id="@+id/authorEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_gravity="top|start"
+        android:layout_margin="@dimen/common_spacing"
+        android:gravity="start|bottom"
+        android:inputType="text"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="Recipe Author"
+        android:textSize="18sp"
+        app:layout_anchor="@id/nameEdit">
+
+    </com.google.android.material.textfield.TextInputEditText>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_margin="@dimen/common_spacing"
+        android:gravity="start|bottom"
+        android:inputType="text"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="Recipe Name"
+        android:textSize="18sp"
+        app:layout_anchor="@id/catEdit">
+
+    </com.google.android.material.textfield.TextInputEditText>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/catEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|top"
+        android:layout_margin="@dimen/common_spacing"
+        android:gravity="start|bottom"
+        android:inputType="text"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="Recipe Category"
+        android:textSize="18sp"
+        app:layout_anchor="@id/edit">
+
+    </com.google.android.material.textfield.TextInputEditText>
+
+    <!--androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/catEdit"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="start|top"
+        app:layout_anchor="@id/edit"
+        app:srcCompat="@layout/category_item"
+        tools:listitem="@layout/category_item">
+
+    </androidx.recyclerview.widget.RecyclerView-->
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="end"
+        android:background="#E0F3FF"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:padding="@dimen/common_spacing"
+        app:layout_anchor="@id/stageEdit"
+        tools:text="Recipe Content Multiline">
+
+    </com.google.android.material.textfield.TextInputEditText>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/stageEdit"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="start|bottom"
+        app:layout_anchor="@id/footerAppBar"
+        app:srcCompat="@layout/category_item"
+        tools:listitem="@layout/category_item">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/footerAppBar"
         style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/description_recipe_save"
-        app:srcCompat="@drawable/ic_ok_24dp"
-        app:layout_anchor="@id/bottomAppBar"
-        />
+        app:layout_anchor="@id/footerAppBar"
+        app:srcCompat="@drawable/ic_ok_24dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

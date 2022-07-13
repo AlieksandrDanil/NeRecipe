@@ -6,8 +6,8 @@ object RecipesFilled {
     val empty = Recipe(
         id = 0,
         pos = 0,
-        author = "",
-        name = "",
+        author = "Empty",
+        name = "Empty",
         category = "Empty",
         content = "",
         likedByMe = false,

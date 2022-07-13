@@ -20,11 +20,25 @@ interface RecipeDao {
     @Insert
     fun insert(recipe: RecipeEntity)
 
-    @Query("UPDATE RecipeEntity SET content = :content WHERE id = :id")
-    fun updateContentById(id: Long, content: String)
+    @Query("UPDATE RecipeEntity SET author = :author, name = :name, category = :category, content = :content WHERE id = :id")
+    fun updateById(id: Long, author: String, name: String, category: String, content: String)
+
+//    @Query("UPDATE RecipeEntity SET name = :name WHERE id = :id")
+//    fun updateNameById(id: Long, name: String)
+//
+//    @Query("UPDATE RecipeEntity SET category = :category WHERE id = :id")
+//    fun updateCategoryById(id: Long, category: String)
+//
+//    @Query("UPDATE RecipeEntity SET content = :content WHERE id = :id")
+//    fun updateContentById(id: Long, content: String)
 
     fun save(recipe: RecipeEntity) =
-        if (recipe.id == 0L) insert(recipe) else updateContentById(recipe.id, recipe.content)
+        if (recipe.id == 0L) insert(recipe) else {
+            updateById(recipe.id, recipe.author, recipe.name, recipe.category, recipe.content)
+//            updateNameById(recipe.id, recipe.name)
+//            updateCategoryById(recipe.id, recipe.category)
+//            updateContentById(recipe.id, recipe.content)
+        }
 
     @Query(
         """

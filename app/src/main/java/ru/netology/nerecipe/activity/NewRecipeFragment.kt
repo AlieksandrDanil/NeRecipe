@@ -6,6 +6,9 @@ import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
+import ru.netology.nerecipe.R
 import ru.netology.nerecipe.databinding.FragmentNewRecipeBinding
 import ru.netology.nerecipe.repository.getConstDraftPostId
 import ru.netology.nerecipe.util.AndroidUtils
@@ -15,13 +18,15 @@ import ru.netology.nerecipe.viewmodel.RecipeViewModel
 
 class NewRecipeFragment : Fragment() {
     companion object {
+        var Bundle.authorArg: String? by StringArg
+        var Bundle.nameArg: String? by StringArg
+        var Bundle.catArg: String? by StringArg
         var Bundle.textArg: String? by StringArg
     }
 
     private val viewModel: RecipeViewModel by viewModels(
         ownerProducer = ::requireParentFragment
     )
-
     private val viewModelForDraft: DraftContentRecipeViewModel by viewModels(
         ownerProducer = ::requireParentFragment
     )
@@ -39,6 +44,15 @@ class NewRecipeFragment : Fragment() {
         )
 
         var draftContent: String? = null
+
+        arguments?.authorArg?.let(binding.authorEdit::setText)
+            ?: binding.authorEdit.setText("Enter Recipe Author")
+
+        arguments?.nameArg?.let(binding.nameEdit::setText)
+            ?: binding.nameEdit.setText("Enter Recipe Name")
+
+        arguments?.catArg?.let(binding.catEdit::setText)
+            ?: binding.catEdit.setText("Select Recipe Category")
 
         arguments?.textArg?.let(binding.edit::setText)
             ?: binding.edit.setText(
@@ -60,11 +74,30 @@ class NewRecipeFragment : Fragment() {
         callback.isEnabled = true
 
         binding.ok.setOnClickListener {
+            if (binding.authorEdit.text.isNullOrBlank() ||
+                binding.nameEdit.text.isNullOrBlank() ||
+                binding.catEdit.text.isNullOrBlank()) {
+                Snackbar.make(
+                    binding.root, R.string.error_empty_content,
+                    BaseTransientBottomBar.LENGTH_INDEFINITE
+                )
+                    .setAction(android.R.string.ok) {
+                        findNavController().navigateUp()
+                    }
+                    .show()
+                return@setOnClickListener
+            }
+
             if (!binding.edit.text.isNullOrBlank()) {
                 if (draftContent != null && viewModel.edited.value?.id != 0L) {
                     viewModel.toEmpty()
                 }
-                viewModel.changeContent(binding.edit.text.toString())
+                viewModel.changeContent(
+                    binding.authorEdit.text.toString(),
+                    binding.nameEdit.text.toString(),
+                    binding.catEdit.text.toString(),
+                    binding.edit.text.toString()
+                )
                 viewModel.save()
             }
             viewModelForDraft.save("")

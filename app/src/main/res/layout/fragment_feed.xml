@@ -5,14 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.FeedFragment">
+    tools:context=".activity.FeedFragment" >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        app:layout_constraintBottom_toTopOf="@id/footerAppBar"
+        tools:layout_editor_absoluteX="0dp"
         tools:listitem="@layout/card_recipe" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -20,9 +22,109 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="68dp"
         android:contentDescription="@string/add_recipe"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/footerAppBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add_24dp" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/footerAppBar"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="BottomAppBar,MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/footerList"
+        style="@style/Widget.AppTheme.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        app:iconTint="@color/purple_700"
+        app:iconGravity="top"
+        android:text="Recipe list"
+        android:textStyle="bold"
+        android:textColor="@color/purple_700"
+        android:textColorHint="@color/purple_700"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_view_list_24dp"
+        app:layout_constraintTop_toTopOf="@id/footerAppBar"
+        app:layout_constraintBottom_toBottomOf="@id/footerAppBar"
+        app:layout_constraintStart_toStartOf="@id/footerAppBar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/footerMyRecipes"
+        style="@style/Widget.AppTheme.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        app:iconGravity="top"
+        android:text="My recipes"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_person_24dp"
+        app:layout_constraintTop_toTopOf="@id/footerAppBar"
+        app:layout_constraintBottom_toBottomOf="@id/footerAppBar"
+        app:layout_constraintStart_toStartOf="@id/footerAppBar"
+        app:layout_constraintEnd_toEndOf="@id/footerAppBar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/footerFavorite"
+        style="@style/Widget.AppTheme.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_spacing"
+        app:iconGravity="top"
+        android:text="Favorite"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_person_24dp"
+        app:layout_constraintTop_toTopOf="@id/footerAppBar"
+        app:layout_constraintBottom_toBottomOf="@id/footerAppBar"
+        app:layout_constraintEnd_toEndOf="@id/footerAppBar" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/topAppBar"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/list"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="BottomAppBar,MissingConstraints" />
+
+    <TextView
+        android:id="@+id/recipeListTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:text="RecipeList"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/topAppBar"
+        app:layout_constraintStart_toStartOf="@id/topAppBar"
+        app:layout_constraintTop_toTopOf="@id/topAppBar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/search"
+        style="@style/Widget.AppTheme.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_search_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/topAppBar"
+        app:layout_constraintEnd_toStartOf="@id/filter"
+        app:layout_constraintTop_toTopOf="@id/topAppBar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/filter"
+        style="@style/Widget.AppTheme.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_spacing"
+        app:icon="@drawable/ic_filter_list_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/topAppBar"
+        app:layout_constraintEnd_toEndOf="@id/topAppBar"
+        app:layout_constraintTop_toTopOf="@id/topAppBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
