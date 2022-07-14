@@ -143,7 +143,7 @@ class RecipeCardFragment : Fragment() {
             }
         }
 
-        binding.stageContent.visibility = 0
+        binding.stageContent.visibility = View.VISIBLE
         binding.msvRecipe.updateLayoutParams { height = -1 }
 
         return binding.root
