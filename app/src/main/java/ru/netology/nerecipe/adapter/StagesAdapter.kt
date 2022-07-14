@@ -1,6 +1,7 @@
 package ru.netology.nerecipe.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -74,7 +75,7 @@ fun stageBinding(
             text = "Шаг ${stage.pos}\n${stage.name}\n${stage.description}"
 
             setOnClickListener {
-                stageImageView.visibility = 0
+                stageImageView.visibility = View.VISIBLE
                 onInteractionStageListener.onClicked(stage)
             }
         }
@@ -82,7 +83,7 @@ fun stageBinding(
         with(stageImageView) {
             setImageResource(R.drawable.salat)
             setOnClickListener {
-                visibility = 8
+                visibility = View.GONE
             }
         }
     }

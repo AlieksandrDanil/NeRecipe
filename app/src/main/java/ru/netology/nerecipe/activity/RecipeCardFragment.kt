@@ -134,16 +134,16 @@ class RecipeCardFragment : Fragment() {
                     binding.stageContent.adapter = stagesAdapter
                     stagesAdapter.submitList(stages)
 
-                    binding.root.findViewById<TextView>(R.id.empty_view_stage).visibility = 4
-                    binding.root.findViewById<RecyclerView>(R.id.stageContent).visibility = 0
+                    binding.root.findViewById<TextView>(R.id.empty_view_stage).visibility = View.INVISIBLE
+                    binding.root.findViewById<RecyclerView>(R.id.stageContent).visibility = View.VISIBLE
                 } else {
-                    binding.root.findViewById<TextView>(R.id.empty_view_stage).visibility = 0
-                    binding.root.findViewById<RecyclerView>(R.id.stageContent).visibility = 4
+                    binding.root.findViewById<TextView>(R.id.empty_view_stage).visibility = View.VISIBLE
+                    binding.root.findViewById<RecyclerView>(R.id.stageContent).visibility = View.INVISIBLE
                 }
             }
         }
 
-        binding.stageContent.visibility = 0
+        binding.stageContent.visibility = View.VISIBLE
         binding.msvRecipe.updateLayoutParams { height = -1 }
 
         return binding.root

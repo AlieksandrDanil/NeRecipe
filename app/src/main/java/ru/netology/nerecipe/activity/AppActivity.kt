@@ -56,26 +56,25 @@ class AppActivity : AppCompatActivity(R.layout.activity_app) {
                 R.id.search -> {
                     clicked = !clicked
                     if (clicked) {
-                        binding.topAppBar.visibility = 0
-                        binding.groupSearch.visibility = 0
-                        binding.groupCategory.visibility = 8
+                        binding.topAppBar.visibility = View.VISIBLE
+                        binding.groupSearch.visibility = View.VISIBLE
+                        binding.groupCategory.visibility = View.GONE
                     } else {
-                        binding.topAppBar.visibility = 8
-                        binding.groupSearch.visibility = 8
-                        binding.groupCategory.visibility = 8
+                        binding.topAppBar.visibility = View.GONE
+                        binding.groupSearch.visibility = View.GONE
+                        binding.groupCategory.visibility = View.GONE
                     }
                 }
                 R.id.filter -> {
                     clicked = !clicked
                     if (clicked) {
-                        //binding.recipeCategory.adapter = categoryAdapter
-                        binding.topAppBar.visibility = 0
-                        binding.groupSearch.visibility = 8
-                        binding.groupCategory.visibility = 0
+                        binding.topAppBar.visibility = View.VISIBLE
+                        binding.groupSearch.visibility = View.GONE
+                        binding.groupCategory.visibility = View.VISIBLE
                     } else {
-                        binding.topAppBar.visibility = 8
-                        binding.groupSearch.visibility = 8
-                        binding.groupCategory.visibility = 8
+                        binding.topAppBar.visibility = View.GONE
+                        binding.groupSearch.visibility = View.GONE
+                        binding.groupCategory.visibility = View.GONE
                     }
                 }
             }

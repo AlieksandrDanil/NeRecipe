@@ -11,6 +11,14 @@
     <string name="recipe_text">Recipe Text</string>
     <string name="menu_edit">Edit</string>
     <string name="menu_add">Add</string>
+    <string name="menu_all_list">All recipes</string>
+    <string name="menu_my_list">My recipes</string>
+    <string name="menu_favorites">Favorite</string>
+    <string name="menu_name">Menu</string>
+    <string name="description_pos_stage">Stage No.</string>
+    <string name="description_name_stage">Name of stage recipe</string>
+    <string name="description_stage">Description of stage recipe</string>
+
     <string name="error_empty_content">No one field can\'t be empty</string>
     <string name="error_parent_object">No parent object have been created</string>
     <string name="reminder_stage_edit">Select Stage to edit below and use menu</string>

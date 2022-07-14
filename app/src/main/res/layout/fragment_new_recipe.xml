@@ -17,9 +17,9 @@
         android:gravity="start|bottom"
         android:inputType="text"
         android:singleLine="true"
-        android:text="Recipe Author"
         android:textSize="@dimen/common_font_size"
-        app:layout_anchor="@id/nameEdit">
+        app:layout_anchor="@id/nameEdit"
+        tools:text="Recipe Author">
     </com.google.android.material.textfield.TextInputEditText>
 
     <com.google.android.material.textfield.TextInputEditText
@@ -32,9 +32,9 @@
         android:gravity="start|bottom"
         android:inputType="text"
         android:singleLine="true"
-        android:text="Recipe Name"
         android:textSize="@dimen/common_font_size"
-        app:layout_anchor="@id/catEdit">
+        app:layout_anchor="@id/catEdit"
+        tools:text="Recipe Name">
     </com.google.android.material.textfield.TextInputEditText>
 
     <TextView
@@ -48,11 +48,11 @@
         android:textStyle="bold"
         android:textColor="@color/teal_200"
         android:textIsSelectable="true"
-        android:paddingBottom="8dp"
+        android:paddingBottom="@dimen/convergence_spacing"
         android:singleLine="true"
-        android:text="Recipe Category"
         android:textSize="@dimen/common_font_size"
-        app:layout_anchor="@id/catEditList">
+        app:layout_anchor="@id/catEditList"
+        tools:text="Recipe Category">
     </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -61,8 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start|top"
         android:orientation="horizontal"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:paddingTop="@dimen/convergence_spacing"
+        android:paddingBottom="@dimen/convergence_spacing"
         android:choiceMode="singleChoice"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_anchor="@id/edit"
@@ -95,7 +95,7 @@
         app:icon="@drawable/ic_options_24dp"
         app:iconSize="32dp"
         app:iconGravity="textStart"
-        android:text="menu"
+        android:text="@string/menu_name"
         app:iconTint="@color/cardview_dark_background"
         app:layout_anchor="@id/stageEditList" />
 

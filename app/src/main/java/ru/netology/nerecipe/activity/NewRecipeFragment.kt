@@ -80,11 +80,11 @@ class NewRecipeFragment : Fragment() {
         viewModel.dataStages.observe(viewLifecycleOwner) { stages ->
             if (idRecipe != 0L && stages.isNotEmpty()) {
                 stagesAdapter.submitList(stages)
-                binding.root.findViewById<TextView>(R.id.empty_view).visibility = 4
-                binding.root.findViewById<RecyclerView>(R.id.stageEditList).visibility = 0
+                binding.root.findViewById<TextView>(R.id.empty_view).visibility = View.INVISIBLE
+                binding.root.findViewById<RecyclerView>(R.id.stageEditList).visibility = View.VISIBLE
             } else {
-                binding.root.findViewById<TextView>(R.id.empty_view).visibility = 0
-                binding.root.findViewById<RecyclerView>(R.id.stageEditList).visibility = 4
+                binding.root.findViewById<TextView>(R.id.empty_view).visibility = View.VISIBLE
+                binding.root.findViewById<RecyclerView>(R.id.stageEditList).visibility = View.INVISIBLE
             }
         }
 

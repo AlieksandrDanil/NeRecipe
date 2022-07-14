@@ -11,6 +11,14 @@
     <string name="menu_remove">Удалить</string>
     <string name="menu_edit">Изменить</string>
     <string name="menu_add">Добавить</string>
+    <string name="menu_all_list">Все рецепты</string>
+    <string name="menu_my_list">Мои рецепты</string>
+    <string name="menu_favorites">Избранные</string>
+    <string name="menu_name">Меню</string>
+    <string name="description_pos_stage">Этап No.</string>
+    <string name="description_name_stage">Название этапа рецепта</string>
+    <string name="description_stage">Подробное описание этапа рецепта</string>
+
     <string name="recipe_text">Текст рецепта</string>
     <string name="error_empty_content">Ни одно из полей не может быть пустым</string>
     <string name="error_parent_object">Не было создано ни одного родительского объекта</string>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="@dimen/convergence_spacing">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/stageCardView"
@@ -26,15 +26,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/common_spacing"
-            android:text="Recipe Stage"
             tools:text="Stages on recipe" />
 
         <ImageView
             android:id="@+id/stageImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="StageDescription"
-            android:text="Recipe Stage"
+            android:contentDescription="@string/app_name"
             tools:text="Stages on recipe" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
