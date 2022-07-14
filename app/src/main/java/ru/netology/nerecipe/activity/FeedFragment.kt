@@ -195,11 +195,11 @@ class FeedFragment : Fragment() {
             if (recipes.isNotEmpty()) {
                 adapter.submitList(recipes)
 
-                binding.root.findViewById<TextView>(R.id.empty_view_recipe).visibility = 4
-                binding.root.findViewById<RecyclerView>(R.id.list).visibility = 0
+                binding.root.findViewById<TextView>(R.id.empty_view_recipe).visibility = View.INVISIBLE
+                binding.root.findViewById<RecyclerView>(R.id.list).visibility = View.VISIBLE
             } else {
-                binding.root.findViewById<TextView>(R.id.empty_view_recipe).visibility = 0
-                binding.root.findViewById<RecyclerView>(R.id.list).visibility = 4
+                binding.root.findViewById<TextView>(R.id.empty_view_recipe).visibility = View.VISIBLE
+                binding.root.findViewById<RecyclerView>(R.id.list).visibility = View.INVISIBLE
             }
         }
 

@@ -102,11 +102,11 @@
         style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="@id/groupSearch"
         app:layout_constraintBottom_toBottomOf="@id/groupCategory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"
         tools:visibility="visible"
         tools:ignore="BottomAppBar" />
 
