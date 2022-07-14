@@ -48,7 +48,7 @@ class NewStageFragment : Fragment() {
 
         //val idRecipe = arguments?.idSubNewArg?.toLong() ?: 0L
 
-        binding.subPos.text = "Stage Pos No.${arguments?.stagePosArg?.toInt()}"
+        binding.subPos.text = "${resources.getString(R.string.description_pos_stage)}${arguments?.stagePosArg?.toInt()}"
         arguments?.stageNameArg?.let(binding.stageNameEdit::setText)
         arguments?.stageTextArg?.let(binding.stageEdit::setText)
             ?: binding.stageEdit.setText(

@@ -17,9 +17,9 @@
         android:gravity="center|bottom"
         android:textStyle="bold"
         android:textColor="@color/teal_200"
-        android:paddingBottom="8dp"
+        android:paddingBottom="@dimen/convergence_spacing"
         android:singleLine="true"
-        android:text="Stage Pos No."
+        android:text="@string/description_pos_stage"
         android:textSize="@dimen/common_font_size"
         app:layout_anchor="@id/stageNameEdit">
     </TextView>
@@ -34,7 +34,7 @@
         android:gravity="start|bottom"
         android:inputType="text"
         android:singleLine="true"
-        android:text="Name of stage recipe"
+        android:text="@string/description_name_stage"
         android:textSize="@dimen/common_font_size"
         app:layout_anchor="@id/stageEdit">
     </com.google.android.material.textfield.TextInputEditText>
@@ -48,7 +48,7 @@
         android:padding="@dimen/common_spacing"
         app:layout_anchor="@id/bottomAppBar"
         android:inputType="textMultiLine"
-        android:text="Description of stage recipe">
+        android:text="@string/description_stage">
     </com.google.android.material.textfield.TextInputEditText>
 
     <com.google.android.material.bottomappbar.BottomAppBar

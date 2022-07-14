@@ -210,7 +210,7 @@ class FeedFragment : Fragment() {
 
                     val recipesCount = viewModel.data.value
                     idPosArg =
-                        if (recipesCount != null)
+                        if (!recipesCount.isNullOrEmpty())
                             (recipesCount.maxOf { it.pos } + 1).toString()
                         else 1.toString()
 
