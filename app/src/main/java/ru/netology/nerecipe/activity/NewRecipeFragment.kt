@@ -89,10 +89,10 @@ class NewRecipeFragment : Fragment() {
         }
 
         arguments?.authorArg?.let(binding.authorEdit::setText)
-            ?: binding.authorEdit.setText("author").toString()
+            //?: binding.authorEdit.setText("author").toString()
 
         arguments?.nameArg?.let(binding.nameEdit::setText)
-            ?: binding.nameEdit.setText("name").toString()
+            //?: binding.nameEdit.setText("name").toString()
 
         arguments?.catArg?.let(binding.catEdit::setText)
             ?: binding.catEdit.setText("Select_Recipe_Category")

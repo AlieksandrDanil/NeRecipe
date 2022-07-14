@@ -18,8 +18,9 @@
         android:inputType="text"
         android:singleLine="true"
         android:textSize="@dimen/common_font_size"
+        android:hint="@string/description_recipe_author"
         app:layout_anchor="@id/nameEdit"
-        tools:text="Recipe Author">
+        tools:text="@string/description_recipe_author">
     </com.google.android.material.textfield.TextInputEditText>
 
     <com.google.android.material.textfield.TextInputEditText
@@ -33,8 +34,9 @@
         android:inputType="text"
         android:singleLine="true"
         android:textSize="@dimen/common_font_size"
+        android:hint="@string/description_recipe_name"
         app:layout_anchor="@id/catEdit"
-        tools:text="Recipe Name">
+        tools:text="@string/description_recipe_name">
     </com.google.android.material.textfield.TextInputEditText>
 
     <TextView
