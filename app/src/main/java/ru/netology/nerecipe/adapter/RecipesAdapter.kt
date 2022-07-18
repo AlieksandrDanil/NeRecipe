@@ -71,7 +71,7 @@ fun recipeBinding(
 
         menu.setOnClickListener {
             PopupMenu(it.context, it).apply {
-                inflate(R.menu.options_recipe)
+                inflate(R.menu.options_menu)
                 setOnMenuItemClickListener { item ->
                     when (item.itemId) {
                         R.id.remove -> {
@@ -82,10 +82,10 @@ fun recipeBinding(
                             onInteractionListener.onEdit(recipe)
                             true
                         }
-                        R.id.add -> {
-                            onInteractionListener.onAdd()
-                            true
-                        }
+//                        R.id.add -> {
+//                            onInteractionListener.onAdd()
+//                            true
+//                        }
                         else -> false
                     }
                 }

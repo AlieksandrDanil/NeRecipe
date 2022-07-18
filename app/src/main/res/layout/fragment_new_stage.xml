@@ -34,8 +34,8 @@
         android:gravity="start|bottom"
         android:inputType="text"
         android:singleLine="true"
-        android:text="@string/description_name_stage"
         android:textSize="@dimen/common_font_size"
+        android:hint="@string/description_name_stage"
         app:layout_anchor="@id/stageEdit">
     </com.google.android.material.textfield.TextInputEditText>
 
@@ -48,7 +48,7 @@
         android:padding="@dimen/common_spacing"
         app:layout_anchor="@id/bottomAppBar"
         android:inputType="textMultiLine"
-        android:text="@string/description_stage">
+        android:hint="@string/description_stage">
     </com.google.android.material.textfield.TextInputEditText>
 
     <com.google.android.material.bottomappbar.BottomAppBar

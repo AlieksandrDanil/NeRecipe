@@ -82,9 +82,9 @@ fun stageBinding(
 
         with(stageImageView) {
             setImageResource(R.drawable.salat)
-            setOnClickListener {
-                visibility = View.GONE
-            }
+//            setOnClickListener {
+//                visibility = View.GONE
+//            }
         }
     }
 }
